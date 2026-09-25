@@ -1,82 +1,143 @@
-# Smart Student Performance Analyzer
+# Student Management System
 
-A menu-driven individual Python project for **CSE1021 - Introduction to Problem Solving and Programming**. It is an expanded, command-line version of official sample project title **#31, “Smart Student Performance Analyzer Using Python.”** It runs in VS Code with Python 3 and uses no third-party packages.
+## Project Title
+**Student Management System using Python**
 
-## Why this is the right scope
+## Overview
+A Python-based console application for managing student records and academic performance. It supports student CRUD operations, marks entry, percentage/grade calculation, and report generation.
 
-The supplied material teaches a 45-hour fundamentals course: problem solving and top-down design; algorithms, pseudocode, flowcharts, verification and analysis; Python values, variables, expressions, statements, modules and functions; conditionals and loops; fundamental numerical algorithms; factoring, PRNGs and Fibonacci; then array techniques, lists, tuples, sets and dictionaries. The project is deliberately a clear terminal program, not a database, GUI, web, AI, or face-recognition system that the PDFs do not teach.
+## Objectives
+- Apply Python programming concepts in a practical project.
+- Digitally manage student records.
+- Calculate and report academic performance.
+- Practice modular programming, JSON file handling, validation, exception handling, testing, Git, and GitHub.
 
-The modest extensions are JSON saving/loading and a deterministic study-plan generator. They use only the standard library and are isolated in small functions, so every line remains explainable in a viva.
+## Problem Statement
+Manual student record management can be time-consuming and error-prone. This system provides a simple computerized solution for storing, retrieving, updating, deleting, and reporting student information.
 
-## Features
+## Functional Modules
+1. **Student Management** — add, view, search, update, delete.
+2. **Marks & Performance** — enter marks, calculate total, percentage, grade, and result.
+3. **Report Generation** — display formatted student performance reports.
 
-- Add, search, update, delete, save and reload student records.
-- Calculate average, classification, strongest/weakest subject and a ranked leaderboard.
-- Demonstrate linear search and binary search explicitly.
-- Produce class analysis with maximum, counting, partitioning, sorted duplicate removal and kth-smallest average.
-- Offer a per-subject score distribution, two-pointer array reversal and a live comparison-count demonstration for linear versus binary search.
-- Use dictionaries for records/marks, a fixed subject tuple, lists for records, and sets for unique recommendations.
-- Generate a reproducible, randomised study plan; apply GCD, prime factorisation and Fibonacci meaningfully as planning demonstrations.
-- Include input validation and a standard-library unit-test suite.
+## Non-Functional Requirements
+- **Usability:** simple menu-driven interface.
+- **Reliability:** validation and controlled error handling.
+- **Maintainability:** separated Python modules.
+- **Performance:** efficient for normal academic datasets.
+- **Resource efficiency:** standard-library-only implementation.
+- **Error handling:** invalid input is rejected with useful messages.
 
-## Submission documents
+## Technologies
+- Python 3
+- Standard library
+- JSON
+- Git
+- GitHub
+- `unittest`
 
-- [`statement.md`](statement.md): problem, scope, users and high-level features required by the instruction document.
-- [`docs/compliance_checklist.md`](docs/compliance_checklist.md): requirement-to-evidence mapping and non-functional requirements.
-- [`docs/design_diagrams.md`](docs/design_diagrams.md): architecture, workflow, use case, component, sequence and JSON-storage diagrams.
-- `project_report.pdf`: upload this PDF separately on the course portal after replacing the cover-page placeholders with your own details.
-
-## Folder layout
-
+## Project Structure
 ```text
-smart-student-performance-analyzer/
-├── src/performance_analyzer.py  # main program
-├── src/config.py                # fixed settings
-├── src/algorithms.py            # reusable numerical/array algorithms
-├── src/storage.py               # JSON loading and saving
-├── src/demo_data.py             # reproducible sample records
-├── tests/test_analyzer.py       # automated checks
-├── docs/
-│   ├── course_review.md         # evidence-based syllabus review
-│   ├── design_and_algorithms.md # IPO, pseudocode, flowchart and complexity
-│   ├── test_cases.md            # manual test cases
-│   └── viva_points.md           # presentation and viva prep
-├── data/                        # created automatically; JSON is ignored by Git
+student-management-system/
 ├── README.md
 ├── statement.md
-├── project_report.pdf
-└── .gitignore
+├── requirements.txt
+├── LICENSE
+├── .gitignore
+├── main.py
+├── student.py
+├── marks.py
+├── reports.py
+├── validation.py
+├── file_handler.py
+├── menu.py
+├── data/
+│   └── students.json
+├── tests/
+│   ├── __init__.py
+│   ├── test_student.py
+│   ├── test_marks.py
+│   └── test_validation.py
+└── screenshots/
 ```
 
-## Run in VS Code
+## Requirements
+- Python 3.x
+- No external Python packages are required.
 
-1. Open this folder in VS Code.
-2. Install Python 3.10 or newer if it is not already installed, then select that interpreter in VS Code.
-3. No package installation or configuration file is required because the project uses only the Python standard library.
-4. In the integrated terminal run:
-
+## Installation & Run
 ```bash
-python3 src/performance_analyzer.py
+git clone https://github.com/yourusername/student-management-system.git
+cd student-management-system
+python main.py
 ```
 
-Choose `9` once for reproducible demonstration data, explore the features, then choose `0` to save. The program creates `data/students.json`; it is ignored so sample private marks are not uploaded accidentally.
+## Main Menu
+```text
+====================================
+       STUDENT MANAGEMENT SYSTEM
+====================================
 
-## Test
+1. Add Student
+2. View Students
+3. Search Student
+4. Update Student
+5. Delete Student
+6. Enter Marks
+7. Generate Report
+8. Exit
+```
 
+## Grade Calculation
+| Percentage | Grade |
+|---|---|
+| 90–100 | A |
+| 75–89 | B |
+| 60–74 | C |
+| 50–59 | D |
+| Below 50 | F |
+
+A student passes only when each entered subject mark is at least 40.
+
+## CRUD
+| Operation | Feature |
+|---|---|
+| Create | Add Student |
+| Read | View/Search Student |
+| Update | Update Student |
+| Delete | Delete Student |
+
+## Testing
+Run:
 ```bash
-python3 -m unittest discover -s tests -v
+python -m unittest discover tests -v
 ```
 
-## GitHub checklist
-
+## GitHub
 ```bash
 git init
 git add .
-git commit -m "Build Smart Student Performance Analyzer"
+git commit -m "Initial project setup"
+git branch -M main
+git remote add origin <repository-url>
+git push -u origin main
 ```
 
-Create an empty GitHub repository, add its remote URL, then push the default branch. Do not commit `data/students.json` unless your teacher specifically wants demonstration data included.
+## Future Enhancements
+- Tkinter GUI
+- Login and role management
+- SQLite database
+- Attendance management
+- PDF report export
+- Data visualization
+- Cloud storage
 
-Before submission, set the repository to **Public** and submit only its root URL in the form `https://github.com/your-username/your-repository-name`. Do not submit a `/tree/` or `/blob/` URL. Upload `project_report.pdf` separately on the course portal.
+## Learning Outcomes
+Variables, data types, operators, conditionals, loops, functions, lists, dictionaries, file handling, JSON, exception handling, modular programming, validation, testing, Git, and GitHub.
 
-See [the project design](docs/design_and_algorithms.md), [test cases](docs/test_cases.md), and [viva notes](docs/viva_points.md).
+## Author
+**Pranshu Sinha**  
+**Course:** B.Tech CSE / AIML
+
+## License
+This project is developed for educational and academic purposes.
